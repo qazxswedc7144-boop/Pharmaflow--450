@@ -8,8 +8,12 @@ import { ReportProvider } from '@/contexts/ReportContext';
 import { NotificationProvider } from '@/context/NotificationContext';
 import AppFaultBoundary from '@/shared/faults/AppFaultBoundary';
 import { SyncWorker } from '../packages/sync-engine/src/workers/sync.worker';
+import { inject } from '@vercel/analytics';
 
 console.log("[BOOT] Loader script starting module evaluation...");
+
+// Initialize Vercel Web Analytics
+inject();
 
 // Initiate Phase 3 Enterprise offline synchronization worker 
 import { LockService } from '@features/locking/lock.service';
